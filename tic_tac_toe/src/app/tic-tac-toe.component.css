@@ -1,0 +1,134 @@
+/* General container and layout */
+.ttt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  max-width: 350px;
+  margin: 2rem auto;
+  padding: 2rem 1.25rem 1.5rem 1.25rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(34, 46, 70, 0.06), 0 1.5px 6px rgba(33,33,33,0.02);
+}
+
+.ttt-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #212121;
+  margin-bottom: 0.8rem;
+}
+
+.ttt-status {
+  font-size: 1.12rem;
+  color: #222;
+  margin-bottom: 1.05rem;
+  letter-spacing: 0.01em;
+  min-height: 1.5em;
+}
+.ttt-x {
+  color: #2196f3;
+  font-weight: 600;
+}
+.ttt-o {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Board grid */
+.ttt-board {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.12rem;
+  margin-bottom: 1rem;
+  background: #eaeaea;
+  border-radius: 14px;
+  box-shadow: 0 1.5px 4px rgba(34, 34, 34, 0.03);
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 270px;
+}
+
+.ttt-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.12rem;
+}
+
+/* Cells */
+.ttt-cell {
+  aspect-ratio: 1;
+  width: 100%;
+  font-size: 2.1rem;
+  font-family: "Inter Tight", "Inter", Arial, sans-serif;
+  color: #222;
+  background: #fafbfc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.14s;
+  box-shadow: 0 0.5px 1.5px rgba(33,33,33,0.09);
+  user-select: none;
+  outline-offset: 1px;
+}
+
+.ttt-cell:active {
+  background: #f0f7ff;
+}
+
+.ttt-cell:disabled {
+  opacity: 1;
+  background: #f5f5f5 !important;
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.ttt-cell.ttt-x {
+  color: #2196f3;
+}
+
+.ttt-cell.ttt-o {
+  color: #000;
+}
+
+/* Reset button */
+.ttt-reset-btn {
+  margin-top: 0.6rem;
+  padding: 0.55rem 1.8rem 0.55rem 1.8rem;
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s, transform 0.11s;
+  box-shadow: 0 1.5px 6px rgba(33,33,33,0.05);
+}
+.ttt-reset-btn:active {
+  background: #1e88e5;
+  transform: scale(0.97);
+}
+.ttt-reset-btn:disabled {
+  background: #bbc6d3;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 450px) {
+  .ttt-container {
+    max-width: 97vw;
+    padding: 1.18rem 0.3rem 1.3rem 0.3rem;
+  }
+  .ttt-title {
+    font-size: 1.35rem;
+  }
+  .ttt-board {
+    max-width: 93vw;
+  }
+}
