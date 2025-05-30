@@ -1,0 +1,30 @@
+<div class="ttt-container">
+  <h2 class="ttt-title">Tic Tac Toe</h2>
+  <div class="ttt-status" *ngIf="!winner">
+    Player <span [class.ttt-x]="currentPlayer==='X'" [class.ttt-o]="currentPlayer==='O'">{{ currentPlayer }}</span>'s turn
+  </div>
+  <div class="ttt-status" *ngIf="winner">
+    <span *ngIf="winner === 'draw'">It's a draw!</span>
+    <span *ngIf="winner !== 'draw'">Player <span [class.ttt-x]="winner==='X'" [class.ttt-o]="winner==='O'">{{ winner }}</span> wins!</span>
+  </div>
+  <div class="ttt-board" role="grid" aria-label="Tic Tac Toe board">
+    <div *ngFor="let row of board; let i = index" class="ttt-row" role="row">
+      <button
+        *ngFor="let cell of row; let j = index"
+        class="ttt-cell"
+        type="button"
+        [attr.aria-label]="getCellAccessibleLabel(i, j)"
+        [disabled]="cell !== null || winner"
+        (click)="handleClick(i, j)"
+        [class.ttt-x]="cell === 'X'"
+        [class.ttt-o]="cell === 'O'"
+        role="gridcell"
+      >
+        {{ cell || '' }}
+      </button>
+    </div>
+  </div>
+  <button class="ttt-reset-btn" type="button" (click)="resetGame()" [disabled]="moves === 0 && !winner">
+    Restart Game
+  </button>
+</div>
